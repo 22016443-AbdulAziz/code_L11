@@ -1,10 +1,173 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title> C369 Lesson 12</title>
-    </head>
-    <body>
-        <p> Hello World ! </p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AX-CHANGER page</title>
+    <link rel="icon" href="axe.png" />
+    <!--Bootstrap CSS Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #4169E1;
+        }
+
+        table {
+            border-style: solid;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            background-color: beige;
+        }
+
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 order-2">
+                    <article>
+                        <table>
+                            <tr>
+                                <th>AX-Changer</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <label for="username">User Name</label>
+                                        <br>
+                                        <input type="text" name="username" id="username">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form>
+                                        <label for="password">Password</label>
+                                        <br>
+                                        <input type="password" name="password" id="password">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button onclick="verified()" id="verify">Next</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button onclick="window.location.href='register.html';">Register</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </article>
+                </div>
+
+                <div class="col-sm-4 order-1">
+                    <article>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>0%</p>
+                                        <p>Exchange Fee</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>24/7</p>
+                                        <p>Money-Changer</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>P2P transfer</p>
+                                        <p>transaction fee 0%</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>Notify Good Prices</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>Currency insights</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="border: solid; padding-left: 30px; padding-right: 30px;">
+                                        <p>User Safe</p>
+                                        <p>Uses blochain tech</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </article>
+                </div>
+
+                <div class="col-sm-4 order-3">
+                    <article>
+                        <table style="width: 220.25px;">
+                            <tr>
+                                <td>
+                                    <p>Mission</p>
+                                    <p>To make independent strong travellers</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Vision</p>
+                                    <p>To give the best rates</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Values</p>
+                                    <p>Integirty, Resilience and honour</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Bootstrap JS Link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function verified() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            let user_data = new Array();
+            user_data = JSON.parse(localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")) : []
+            if (user_data.some((v) => v.email === username && v.password === password)) {
+                alert("login successful");
+                window.location.href = "home.html"
+            }
+            else {
+                alert("Login Fail")
+            }
+        }
+    </script>
+</body>
 
 </html>
